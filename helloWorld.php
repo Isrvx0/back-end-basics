@@ -1,3 +1,4 @@
 <?php
-echo "Hello World!";
+define("greeting","Hello World!");
+echo greeting;
 ?>
