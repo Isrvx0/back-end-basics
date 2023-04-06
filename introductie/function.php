@@ -1,9 +1,9 @@
 <?php
-function ageCalculate (int $bornYear){
+function ageCalculator(int $bornYear){
     $age = 2023 - $bornYear ;
     return "Your age is = $age years old.";
 }
-echo ageCalculate('2004'); // Here php will see it as int and will not get an error
+echo ageCalculator('2004'); // Here php will see it as int and will not get an error
 // but if we use -> declare(strict_types=1); , you will get an error! look at the below example
 ?>
 
