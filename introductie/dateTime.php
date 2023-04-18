@@ -1,6 +1,6 @@
 <?php
     function greeting_message(){
-        $timeOfDay = date("H:i:a");
+        $timeOfDay = date("H:i a");
         if($timeOfDay >= '06:00'and $timeOfDay < '12:00'){
             $greeting = 'Good morning!<br> Het is nu '.$timeOfDay;
         }else if($timeOfDay >= '12:00'and $timeOfDay < '18:00'){
