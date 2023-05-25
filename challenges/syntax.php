@@ -1,17 +1,50 @@
 <?php
-function lijst_optellen($numbers) {
-    $sum = 0;
-    foreach ($numbers as $number) {
-        if ($number % 2 == 0){
-        $sum += $number;
+function letters_optellen($words) {
+    $max = '';
+    foreach ($words as $word) {
+        if (strlen($word) > strlen($max)){
+            $max = $word;
     }}
-    return $sum;
+    return $max;
 }
  
+$wordenLijst = ['kat', 'hond', 'olifant'] ;
+$result = letters_optellen($wordenLijst);
 
-$getallenLijst = [1, 2, 3, 4];
-$result = lijst_optellen($getallenLijst);
+echo $result;
 
-echo $result; // Output: 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//opdracht 1 :
+
+// function lijst_optellen($numbers) {
+//     $sum = 0;
+//     foreach ($numbers as $number) {
+//         if ($number % 2 == 0){
+//         $sum += $number;
+//     }}
+//     return $sum;
+// }
+ 
+
+// $getallenLijst = [1, 2, 3, 4];
+// $result = lijst_optellen($getallenLijst);
+
+// echo $result; // Output: 10
 
  
