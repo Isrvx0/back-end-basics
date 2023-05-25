@@ -1,22 +1,22 @@
 <?php
-function letters_optellen($words) {
-    $max = '';
-    foreach ($words as $word) {
-        if (strlen($word) > strlen($max)){
-            $max = $word;
-    }}
-    return $max;
+function lijst_sorteren($lijst) {
+    $newLijst = array();
+
+    foreach ($lijst as $words){
+        $key = array_search(min($lijst), $lijst);
+        array_push($newLijst, min($lijst));
+        unset($lijst[$key]);
+    }
+    return $newLijst;
 }
  
-$wordenLijst = ['kat', 'hond', 'olifant'] ;
-$result = letters_optellen($wordenLijst);
+$wordenLijst = [3, 1, 4, 2];
+$result = lijst_sorteren($wordenLijst);
 
-echo $result;
-
-
-
-
-
+foreach ($result as $word){
+    echo $word;
+    echo '<br>';
+}
 
 
 
@@ -29,6 +29,28 @@ echo $result;
 
 
 
+
+
+//-----------------------
+
+
+//opdracht 2 :
+
+// function letters_optellen($words) {
+//     $max = '';
+//     foreach ($words as $word) {
+//         if (strlen($word) > strlen($max)){
+//             $max = $word;
+//     }}
+//     return $max;
+// }
+ 
+// $wordenLijst = ['kat', 'hond', 'olifant'] ;
+// $result = letters_optellen($wordenLijst);
+
+// echo $result;
+
+//-----------------------
 
 //opdracht 1 :
 
