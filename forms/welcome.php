@@ -66,15 +66,24 @@
 </html>
 
 <?php
-    # Check if name and email fileds are empty
-    if(empty($_POST['name']) && empty($_POST['email'])){
-        echo " <br/> Please fill in the fields";
-    }else{
-        # $name= $_POST['name'];
-        # $email= $_POST['email'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        echo ("<h1>". 'De ingevulde gegevens zijn:' ."</h1>");
-        echo ('Name is :     '. $_POST['name']. '<br/>');
-        echo ('Email is :'   . $_POST['email']. '<br/>');
-    }
+        function errorText ($error) {
+            echo "<br/>Invalid ". $error ." format<br/>";
+        };
+        # Check if name and email fileds are empty
+        if(empty($_POST['name']) && empty($_POST['email'])){
+            echo " <br/> Please fill in the fields";
+        } if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+            errorText ("email");
+        } if (ctype_alpha(str_replace(' ', '', $_POST['name'])) === false) {
+            errorText ("name");
+        }else{
+            # $name= $_POST['name'];
+            # $email= $_POST['email'];
+            echo ("<h1>". 'De ingevulde gegevens zijn:' ."</h1>");
+            echo ('Name is :     '. $_POST['name']. '<br/>');
+            echo ('Email is :'   . $_POST['email']. '<br/>');
+        }
+    };
 ?>
