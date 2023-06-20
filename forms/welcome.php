@@ -12,7 +12,7 @@
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
         body {
-            padding: 20%;
+            padding: 5%;
             align-items: center;
             background-image: linear-gradient(to right,rgb(222, 187, 255), white);
         }
@@ -36,7 +36,7 @@
             font-size: large;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
-        h1 {
+        #formulier h1 {
             text-align: center;
             background-color: white;
             color: blueviolet;
@@ -54,13 +54,27 @@
 <body>
     <div id="formulier">
     <h1> REGISTRATION FORM </h1>
-        <form>
+        <form method="get">
             <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value=""><br>
+            <input type="text" id="fname" name="name" value=""><br>
             <label for="lname">Email address:</label><br>
-            <input type="text" id="lname" name="lname" value="">
+            <input type="text" id="lname" name="email" value="">
             <input type="submit" value="send">
         </form>
     </div>
 </body>
 </html>
+
+<?php
+    # Check if name and email fileds are empty
+    if(empty($_GET['name']) && empty($_GET['email'])){
+        echo " <br/> Please fill in the fields";
+    }else{
+        # $name= $_POST['name'];
+        # $email= $_POST['email'];
+
+        echo ("<h1>". 'De ingevulde gegevens zijn:' ."</h1>");
+        echo ('Name is :     '. $_GET['name']. '<br/>');
+        echo ('Email is :'   . $_GET['email']. '<br/>');
+    }
+?>
