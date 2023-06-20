@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Formulier </title>
     <style>
-        html {
-            color: white;
-            font-size: medium;
-            font-weight: bold;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        }
+        
         body {
             padding: 5%;
             align-items: center;
@@ -32,6 +27,8 @@
             background-color: white;
         }
         label {
+            color: white;
+            font-weight: bold;
             text-align: left;
             font-size: large;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -48,42 +45,60 @@
             padding: 5px;
             background-color: #e6c1fd;
         }
+        .error {
+            color: red;
+            font-size: 15px;
+            font-weight: bold;
+        }
         
     </style>
 </head>
 <body>
+<?php
+    $requiredName = $requiredEmail = "*";
+    $invalidName = $invalidEmail = "";
+    $filled_information = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        # Check if name and email fileds are empty or invalid
+        if(empty($_POST['email'])){
+            $requiredEmail = "Email is required!";
+        } if (empty($_POST['name'])) {
+            $requiredName = "Name is required!";
+        } if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+            $invalidEmail = "Email is Invalid!</br>";
+        } if (ctype_alpha(str_replace(' ', '', $_POST['name'])) === false) {
+            $invalidName = "Name is Invalid!</br>";
+        }else{
+            # $name= $_POST['name'];
+            # $email= $_POST['email'];
+            $filled_information = "<h2> De ingevulde gegevens zijn: </h2> <br/> Name is : ". $_POST['name']. "<br/>Email address is : ". $_POST['email'];
+        }
+            };
+        ?>
     <div id="formulier">
-    <h1> REGISTRATION FORM </h1>
+        <h1> REGISTRATION FORM </h1>
         <form method="post">
-            <label for="fname">First name:</label><br>
+            <label for="fname">First name:
+                <span class="error"><?php echo $requiredName;?></span>
+            </label><br>
             <input type="text" id="fname" name="name" value=""><br>
-            <label for="lname">Email address:</label><br>
+            <span class="error"><?php echo $invalidName;?></span>
+
+            <label for="lname">Email address:
+                <span class="error"><?php echo $requiredEmail;?></span>
+            </label><br>
             <input type="text" id="lname" name="email" value="">
+            <span class="error"><?php echo $invalidEmail;?></span>
+
             <input type="submit" value="send">
         </form>
+        <?php 
+        echo $filled_information.'<br/>';
+        ?>
+
     </div>
 </body>
 </html>
 
-<?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        function errorText ($error) {
-            echo "<br/>Invalid ". $error ." format<br/>";
-        };
-        # Check if name and email fileds are empty
-        if(empty($_POST['name']) && empty($_POST['email'])){
-            echo " <br/> Please fill in the fields";
-        } if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-            errorText ("email");
-        } if (ctype_alpha(str_replace(' ', '', $_POST['name'])) === false) {
-            errorText ("name");
-        }else{
-            # $name= $_POST['name'];
-            # $email= $_POST['email'];
-            echo ("<h1>". 'De ingevulde gegevens zijn:' ."</h1>");
-            echo ('Name is :     '. $_POST['name']. '<br/>');
-            echo ('Email is :'   . $_POST['email']. '<br/>');
-        }
-    };
-?>
