@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Formulier </title>
+    <style>
+        html {
+            color: white;
+            font-size: medium;
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        body {
+            padding: 20%;
+            align-items: center;
+            background-image: linear-gradient(to right,rgb(222, 187, 255), white);
+        }
+        input[type=text] {
+            width: 100%;
+            background-color: #d39ff4;
+            padding: 12px 20px;
+            border: 2px solid white ;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            padding: 4px 20px;
+            margin: 20px 5px;
+            color:blueviolet;
+            background-color: white;
+        }
+        label {
+            text-align: left;
+            font-size: large;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            background-color: white;
+            color: blueviolet;
+            font-family:'Times New Roman', Times, serif;
+        }
+        #formulier {
+            border: 5px solid white;
+            width: 100%;
+            padding: 5px;
+            background-color: #e6c1fd;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="formulier">
+    <h1> REGISTRATION FORM </h1>
+        <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value=""><br>
+            <label for="lname">Email address:</label><br>
+            <input type="text" id="lname" name="lname" value="">
+            <input type="submit" value="send">
+        </form>
+    </div>
+</body>
+</html>
