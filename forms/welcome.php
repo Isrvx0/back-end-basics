@@ -54,7 +54,7 @@
 <body>
     <div id="formulier">
     <h1> REGISTRATION FORM </h1>
-        <form method="get">
+        <form method="post">
             <label for="fname">First name:</label><br>
             <input type="text" id="fname" name="name" value=""><br>
             <label for="lname">Email address:</label><br>
@@ -67,14 +67,14 @@
 
 <?php
     # Check if name and email fileds are empty
-    if(empty($_GET['name']) && empty($_GET['email'])){
+    if(empty($_POST['name']) && empty($_POST['email'])){
         echo " <br/> Please fill in the fields";
     }else{
         # $name= $_POST['name'];
         # $email= $_POST['email'];
 
         echo ("<h1>". 'De ingevulde gegevens zijn:' ."</h1>");
-        echo ('Name is :     '. $_GET['name']. '<br/>');
-        echo ('Email is :'   . $_GET['email']. '<br/>');
+        echo ('Name is :     '. $_POST['name']. '<br/>');
+        echo ('Email is :'   . $_POST['email']. '<br/>');
     }
 ?>
