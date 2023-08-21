@@ -37,6 +37,16 @@
     }
 
 
+    /* FOR LOOP STATEMENT IN PHP*/
+    $names = array("Jimin","Barka","Felix","Hyunjin");
 
+    for ($x = 1; $x<= 7; $x++){
+        # $x is the start value, as long $x smaller or equel to 5, add 1 to $xx
+        echo ("<h3>".$x."</h3>");
+    }
+
+    for ($x = 0; $x< count($names); $x++){
+        echo ("<h3>".$names[$x]."</h3>");
+    }
 
 ?>
