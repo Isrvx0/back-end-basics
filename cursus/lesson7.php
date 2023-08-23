@@ -49,4 +49,31 @@
         echo ("<h3>".$names[$x]."</h3>");
     }
 
+    echo("<hr>");
+    
+    
+    /* FOREACH STATEMENT IN PHP*/
+    foreach( $names as $name ){
+        echo ("<h2>".$name."</h2>");
+    }
+    echo("<hr>");
+
+
+    /* WHILE LOOP STATEMENT IN PHP*/
+    $start_number = 1;
+        # How to use while loop in php:
+    while( $start_number <= 5 ){
+        echo ("<h4>".$start_number."</h4>");
+        $start_number ++;
+    }
+
+        # How to use "do while" in php:
+    do{
+        echo ("<h4>".$start_number."</h4>");
+        $start_number ++;
+    } while ( $start_number <= 5 );
+
+
+
+
 ?>
