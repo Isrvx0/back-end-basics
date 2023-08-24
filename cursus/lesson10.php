@@ -43,29 +43,31 @@
 <body>
 
     <?php
-                # 'include || 'require' add files to the php page! 
-                # different is : if happend an error, include will skip the error, require will stopt the whole next code
+               
         include 'file.php';
         //require 'file.php';
+                # 'include || 'require' add files to the php page! 
+                # different is : if happend an error, include will skip the error, require will stopt the whole next code
         
         
-        # REQUEST and POST do the same thing and bring to you the input date!
 
-                # we use it to know which server we are using.
         //echo $_SERVER["REQUEST_METHOD"].'<br>';
-        
-                # It'll print for us the input of the user
+                # we use it to know which server we are using.
+
         // echo $_GET["fname"].'<br>';
         // echo $_GET["lname"].'<br>';
         // echo $_GET["country"].'<br>';
+                # It'll print for us the input of the user
 
                 # to avoid getiing an error, we cam use 'if' statement:
         if($_SERVER["REQUEST_METHOD"]=='POST') {
             $fname = ""; $lname="";$country="";
-                    #we use 'isset' to avoid getting error if there's two forms! so it will work only if there is a right input!
             if (isset ($_POST["fname"])){
-                    # We use 'strip_tags' to avoid hackers and unneeded inputs (1:40:00) 
+                #we use 'isset' to avoid getting error if there's two forms! so it will work only if there is a right input!
+
                 $fname = strip_tags ($_POST["fname"]);
+                    # We use 'strip_tags' to avoid hackers and unneeded inputs (1:42:00) => Removing HTML elements from a string
+
                 // if (!preg_match("/^[A-Z][a-z]+$/",$fname)){
                 //     $fname = "<span style=color:red>invalid input</span>";
                 // }
@@ -79,10 +81,10 @@
         }
         
     ?>
-    <!-- we use the action methode to tell the browser what to do if the user send the information -->
-    <!-- <form method="post" action="lesson10.php"> -->
+    
     <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-        
+    <!-- we use the action methode to tell the browser what to do if the user send the information -->
+    <!-- <form method="post" action="lesson10.php"> -->    
         <div> 
 
             <h2> Welcome to my page </h2>
