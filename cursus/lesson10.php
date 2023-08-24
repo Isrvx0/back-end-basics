@@ -3,8 +3,6 @@
 <body>
 
     <?php
-
-
         # REQUEST and POST do the same thing and bring to you the input date!
         # 
                 # we use it to know which server we are using.
@@ -17,9 +15,11 @@
 
                 # to avoid getiing an error, we cam use 'if' statement:
         if($_SERVER["REQUEST_METHOD"]=='POST') {
-            echo $_POST["fname"].'<br>';
-            echo $_POST["lname"].'<br>';
-            echo $_POST["country"].'<br>';
+            # We use 'strip_tags' to avoid hackers and unneeded inputs (1:40:00) 
+            $date = strip_tags ($_POST["fname"]).'<br>';
+            $date .= strip_tags ($_POST["lname"]).'<br>';
+            $date .= strip_tags ($_POST["country"]).'<hr>';
+            echo $date;
         }
         
     ?>
