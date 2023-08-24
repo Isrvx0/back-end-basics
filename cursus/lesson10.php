@@ -16,9 +16,13 @@
                 # to avoid getiing an error, we cam use 'if' statement:
         if($_SERVER["REQUEST_METHOD"]=='POST') {
             # We use 'strip_tags' to avoid hackers and unneeded inputs (1:40:00) 
-            $date = strip_tags ($_POST["fname"]).'<br>';
-            $date .= strip_tags ($_POST["lname"]).'<br>';
-            $date .= strip_tags ($_POST["country"]).'<hr>';
+            $fname = strip_tags ($_POST["fname"]);
+            if (!preg_match("/^[A-Z][a-z]+$/",$fname)){
+                $fname = "<span style=color:red>invalid input</span>";
+            }
+            $lname = strip_tags ($_POST["lname"]);
+            $country = strip_tags ($_POST["country"]);
+            $date = "$fname<br>$lname<br>$country<hr>";
             echo $date;
         }
         
@@ -38,10 +42,10 @@
 
             <label for="country">Country:</label>
             <select id="country" name="country">
-                <option value="southKorea">South-Korea</option>
-                <option value="japan">Japan</option>
-                <option value="china">China</option>
-                <option value="thailand">Thailand</option>
+                <option value="South Korea">South-Korea</option>
+                <option value="Japan">Japan</option>
+                <option value="China">China</option>
+                <option value="Thailand">Thailand</option>
             </select>
             <br>
             <button> Submit </button>
