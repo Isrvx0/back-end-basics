@@ -23,22 +23,28 @@
     </style>    
     <body>
         <?php
-            $text = "";
+            //$text = "";
 
             if ($_SERVER["REQUEST_METHOD"]=='POST') {
-                $myfile = fopen("myfile.txt",'r');
-                $text = fread($myfile,filesize("myfile.txt"));
+                // $myfile = fopen("myfile.txt",'r');
+                // $text = fread($myfile,filesize("myfile.txt"));
+                // fclose($myfile);
+                //         # 'fopen' will open the file, the 'r' is for 'read'. then 'fread' will read the fill (print it), then we'll close it with 'fclose'.
+                //         # 'filesize' returns how many characters are in the text file. 
+                $myfile = fopen ("newfile.txt",'w');
+                        # 'w' here means for w in 'write.' 
+                fwrite($myfile, $_POST["textfile"]);
                 fclose($myfile);
-                        # 'fopen' will open the file, then 'fread' will read the fill (print it), then we'll close it with 'fclose'.
-                        # 'filesize' returns how many characters are in the text file. 
+            
+            
             }
         ?>
         <form method="post">
             <div>
-                <h1> Read file form </h1>
+                <h1> Write file form </h1>
 
                 <label> File content </label>
-                <textarea name="textfiile" placeholder="type.."><?php echo $text; ?></textarea>
+                <textarea name="textfile" placeholder="type.."></textarea>
                 <button>submit</button>
             </div>  
         </form>
