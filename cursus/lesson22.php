@@ -59,8 +59,9 @@
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 // hier is making a filter => if it's > -1 , it will display.
                 // so if what you type is in the table, will display, and if not , it will not be showing 
+                });
+                $("#employee tr:first").show();
             });
-        });
         });
 
         var table = document.getElementById("employee");
