@@ -6,7 +6,7 @@
 <body>
         <?php
             // CLASS AND OBJECTS IN PHP // https://www.w3schools.com/php/php_oop_classes_objects.asp#:~:text=A%20class%20is%20a%20template,is%20an%20instance%20of%20class.
-            
+
             // A class is defined by using the class keyword, followed by the name of the class and a pair of curly braces ({}). All its properties and methods go inside the braces:
                     
                     # we're making a class that called 'employee' and inside the '{}' is the container of the class.
@@ -27,11 +27,14 @@
                     # Objects of a class are created using the "new" keyword.
                     # We can create multiple objects from a class.
                     # Each object has all the properties and methods defined in the class, but they will have different property values.
+                
+                // object 1
                 $emp1 = new employee();
                 $emp1 ->emp_no = 1;
                 $emp1 ->emp_name = "Jimin";
                 $emp1 ->printData();
 
+                // object 2
                 $emp2 = new employee();
                 $emp2 ->emp_no = 2;
                 $emp2 ->emp_name = "Barka";
