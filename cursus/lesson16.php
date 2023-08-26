@@ -20,7 +20,7 @@
                 function printData(){
                     $no = $this->emp_no;
                     $name = $this->emp_name;
-                    echo "<div style='margin:10px;padding:0'<h3>$no</h3> <h3>$name</h3>";
+                    echo "<div style='margin:10px;padding:0'><h3>$no</h3> <h3>$name</h3> </div>";
                 }
             }
             if (isset($_POST["btntest"])) {
