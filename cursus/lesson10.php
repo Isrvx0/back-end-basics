@@ -1,45 +1,8 @@
 <!DOCTYPE html>
 <html>
-<style>
-    body {
-    padding: 5%;
-    align-items: center;
-    background-image: linear-gradient(to right,rgb(56, 200, 250), white);
-    }
-    input[type=text] {
-        color: white;
-        width: 100%;
-        background-color: #89CFF0;
-        padding: 12px 20px;
-        border: 2px solid white ;
-        margin: 8px 0;
-        box-sizing: border-box;
-    }
-    input[type=submit] {
-        padding: 4px 20px;
-        margin: 20px 5px;
-        color:blueviolet;
-        background-color: white;
-    }
-    label {
-        color: white;
-        font-weight: bold;
-        text-align: left;
-        font-size: large;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-    div {
-        border: 5px solid white;
-        width: 100%;
-        padding: 5px;
-        background-color: #87CEFA;
-    }
-    h2{
-        text-align: center;
-        color: white;
-    }
-
-</style>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
     <?php
