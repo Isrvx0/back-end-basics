@@ -31,7 +31,7 @@ div {
     padding: 5px;
     background-color: #87CEFA;
 }
-h2{
+h1, h2{
     text-align: center;
     color: white;
 }
@@ -42,3 +42,4 @@ button{
     background-color: rgb(14, 163, 213);
     color: white;
 }
+
