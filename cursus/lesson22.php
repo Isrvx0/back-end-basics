@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>   
 <body>
     <?php
@@ -27,6 +28,7 @@
         </div>    
         <br><br>
 
+        <input type="text" id="txtSearch" placeholder="Search..">
         <table id="employee"> 
             <tr> 
                 <th> Employee Number </th>
@@ -45,8 +47,22 @@
             ?>
         </table>
     </form> 
-    
+
     <script>
+        $(document).ready(function(){
+            // keyup => as soon as you touch the keyboard
+        $("#txtSearch").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+                // took the value that you type it and made it lower case.
+            $("#employee tr").filter(function() {
+                // called the tr inside our table
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                // hier is making a filter => if it's > -1 , it will display.
+                // so if what you type is in the table, will display, and if not , it will not be showing 
+            });
+        });
+        });
+
         var table = document.getElementById("employee");
         for (var x=1; x < table.rows.length; x++ ) {
             table.rows[x].onclick = function(){
