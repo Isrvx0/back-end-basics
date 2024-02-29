@@ -1,11 +1,11 @@
 <?php
     function greeting_message(){
         $timeOfDay = date("H:i a");
-        if(strtotime($timeOfDay) >= strtotime('06:00 am') && strtotime($timeOfDay) < strtotime('12:00 pm')){
+        if($timeOfDay >= ('06:00 am') && $timeOfDay < ('12:00 pm')){
             $greeting = 'Good morning!<br> Het is nu '.$timeOfDay;
-        } else if(strtotime($timeOfDay) >= strtotime('12:00 pm') && strtotime($timeOfDay) < strtotime('06:00 pm')){
+        } else if($timeOfDay >= ('12:00 pm') && $timeOfDay < ('18:00 pm')){
             $greeting = 'Good afternoon!<br> Het is nu '.$timeOfDay;
-        } else if(strtotime($timeOfDay) >= strtotime('06:00 pm') && strtotime($timeOfDay) < strtotime('12:00 am')){
+        } else if( $timeOfDay >= ('18:00 pm') && ($timeOfDay) < ('00:00 am')){
             $greeting = 'Good evening!<br> Het is nu '.$timeOfDay;
         } else {
             $greeting = 'Good night!<br> Het is nu '. $timeOfDay;
@@ -15,11 +15,11 @@
 
     function background_image(){
         $timeOfDay = date("H:i a"); 
-        if(strtotime($timeOfDay) >= strtotime('06:00 am') && strtotime($timeOfDay) < strtotime('12:00 pm')){
+        if($timeOfDay >= ('06:00 am') && $timeOfDay < ('12:00 pm')){
             return 'images/morning.png';
-        } else if (strtotime($timeOfDay) >= strtotime('12:00 pm') && strtotime($timeOfDay) < strtotime('06:00 pm')){
+        } else if($timeOfDay >= ('12:00 pm') && $timeOfDay < ('18:00 pm')){
             return 'images/afternoon.png';
-        } else if (strtotime($timeOfDay) >= strtotime('06:00 pm') && strtotime($timeOfDay) < strtotime('12:00 am')){
+        } else if( $timeOfDay >= ('18:00 pm') && ($timeOfDay) < ('00:00 am')){
             return 'images/evening.png';
         } else {
             return 'images/night.png';
