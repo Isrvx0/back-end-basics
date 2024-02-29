@@ -13,16 +13,17 @@ om te bepalen welke inhoud er ingeladen moet worden in je html
 
     <header>
         <!-- Header afbeelding -->
-        <img class="header-img" src="../images/logo.jpg" alt="Header Afbeelding">
+        <img class="header-img" src="images/logo.jpg" alt="Header Afbeelding">
 
         <!-- Menu -->
         <nav>
             <ul>
-                <li><a href="../index.php?onderwerp=onderwerp1">Onderwerp 1</a></li>
-                <li><a href="../index.php?onderwerp=onderwerp2">Onderwerp 2</a></li>
-                <li><a href="../index.php?onderwerp=onderwerp3">Onderwerp 3</a></li>
+                <li><a href="index.php?page=onderwerp1">Sport</a></li>
+                <li><a href="index.php?page=onderwerp2">Drawing</a></li>
+                <li><a href="index.php?page=onderwerp3">Cooking</a></li>
             </ul>
             </ul>
         </nav>
+
     </header>
 
