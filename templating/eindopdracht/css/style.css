@@ -33,6 +33,15 @@ nav ul li a:hover {
     margin: 0 auto;
 }
 
+
+/* stijlen voor images in onderwerpen pages */
+
+.image-onderwerp{
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
 /* Stijlen voor de footer */
 footer {
     background-color: #333;
