@@ -32,3 +32,14 @@ nav ul li a:hover {
     display: block;
     margin: 0 auto;
 }
+
+/* Stijlen voor de footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
