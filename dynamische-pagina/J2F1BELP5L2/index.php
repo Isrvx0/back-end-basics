@@ -1,24 +1,57 @@
-<!doctype html>
-
-<html lang="en">
+<!DOCTYPE html>
+<html lang="nl">
 <head>
-  <meta charset="utf-8">
-  <title>J2F1BELP5L2 - Content uit je database</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamische Content</title>
+	<link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
+    <?php
+		include('./includes/header.php');
+	?>
 
-	<!-- laad hier via php je header in (vanuit je includes map) -->
+    <div class="content">
+        <?php
+        // Connectie met de database
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "databank_php";
 
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-	<!-- Haal hier uit de URL welke pagina uit het menu is opgevraagd. Gebruik deze om de content uit de database te halen. -->
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
+        if(isset($_GET['page'])) {
+			$pagina = $_GET['page'];
+			// Voer een query uit om de inhoud van de database op te halen op basis van de URL-parameter
+			$sql = "SELECT * FROM onderwerpen WHERE name='$pagina'";
+			$result = $conn->query($sql);
+		
+			if ($result->num_rows > 0) {
+				// Output data of each row
+				while($row = $result->fetch_assoc()) {
+					echo "<h2>" . $row["name"]. "</h2>";
+					echo "<p>" . $row["description"]. "</p>";
+					echo "<img src='images/" . $row["image"]. "' alt='" . $row["name"]. "'>";
+				}
+			} else {
+				echo "Geen resultaten gevonden voor $pagina";
+				echo "Geen resultaten gevonden voor $pagina";
+			}
+		}
+		
 
-	<!-- Laat hier de content die je op hebt gehaald uit de database zien op de pagina. -->
+        $conn->close();
+        ?>
+    </div>
 
-
-	<!-- laad hier via php je footer in (vanuit je includes map)-->
-
-
+    <?php
+		include('./includes/footer.php');
+	?>
 </body>
 </html>
